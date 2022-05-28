@@ -31,13 +31,14 @@ First, we'll define the race categories, assigning plain-English names to the Ce
 
 <code>race_vars <- c(Total = 'P2_001N',
                White = 'P2_005N',
+               Hispanic = 'P2_002N',
                Black = 'P2_006N',
                AmericanIndian = 'P2_007N',
                Asian = 'P2_008N',
                PacIslander = 'P2_009N',
                OtherRace = 'P2_010N',
-               Multiracial = 'P2_011N',
-               Hispanic = 'P2_002N')</code>
+               Multiracial = 'P2_011N'
+               )</code>
              
 Let's stop briefly for a few housekeeping notes: First, we've given the Census Bureau's variables ("P2_001N", etc.) new names with an equal sign; easy and convenient. Second, we grouped nine variables together with "c(...)". That "c" stands for "concatenate" or "combine", and it comes handy when you need to mash together several things. 
   
