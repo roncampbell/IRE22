@@ -77,6 +77,14 @@ Now our file looks like this.
   
 ![](https://github.com/roncampbell/IRE22/blob/images/DTracts2.png?raw=true)
   
-Getting better. But we need to see complete information for each tract on a single row. 
+Getting better. But we want to see each tract's information on a single row. Right now we can see a tract's total on one line; then we have to skip down several lines to see the information on its White population, and skip down many more lines to see the Black population and so forth. 
   
+The solution is to "pivot" the data, making it wide instead of long.
+  
+<code>DenverTracts <- DenverTracts %>% 
+  pivot_wider(names_from = variable, values_from = value)</code>
+  
+Here's the result:
+  
+![]( ?raw=true)
 
