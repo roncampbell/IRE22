@@ -75,4 +75,8 @@ Then we remove the unneed State column.
   
 Now our file looks like this.
   
-![](
+![](https://github.com/roncampbell/IRE22/blob/images/DTracts2.png?raw=true)
+  
+Getting better. But we need to see complete information for each tract on a single row. 
+  
+
