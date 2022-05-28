@@ -27,8 +27,9 @@ The tidycensus package uses the Census Bureau's application programming interfac
   
 The Census Bureau has 70+ racial categories, the vast majority of them multiracial groups (for example, Multiracial - three races - Non-Hispanic White, Non-Hispanic Black and Non-Hispanic Asian). However, it also lists simplified categories, and we'll use a simple 8-category set. Then we'll apply that to the six Denver region metro counties: Adams, Arapahoe, Broomfield, Denver, Douglas and Jefferson.  
   
- # define 2020 race variables
-> race_vars <- c(Total = 'P2_001N',
+First, we'll define the race categories, assigning plain-English names to the Census variables.
+
+<code>race_vars <- c(Total = 'P2_001N',
                White = 'P2_005N',
                Black = 'P2_006N',
                AmericanIndian = 'P2_007N',
@@ -36,6 +37,17 @@ The Census Bureau has 70+ racial categories, the vast majority of them multiraci
                PacIslander = 'P2_009N',
                OtherRace = 'P2_010N',
                Multiracial = 'P2_011N',
-               Hispanic = 'P2_002N')
+                   Hispanic = 'P2_002N')</code>
              
-             
+Next, we'll make the call to the Census Bureau, specifying that we want "decennial" (once-a-decade) data from 2020, at the tract level, that we want it from Colorado ("CO"), from counties in the Denver metro (listing FIPS codes for the six Denver metro counties), and citing "race_vars", which we just defined, as the stuff we want. We also say "geometry = FALSE" because we don't need maps.
+  
+<code>DenverTracts <- get_decennial(
+  geography = "tract",
+  state = "CO",
+  county = c("001", "005", "014", "031", "035", "059"),
+  variables = race_vars,
+  year = 2020,
+  geometry = FALSE
+)</code>
+  
+  
