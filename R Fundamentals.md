@@ -18,3 +18,24 @@ A few more points before we dig in:
 * Comment out a line with the <code>#</code> (hash) mark.
 * Finally, you can create a script in R. In fact, you can create scripts several different ways, including as a simple script, as a notebook and as a Markdown document. This is a Very Big Deal. You can insert comments in your code, helpful notes to your collaborators and your future self. You can recheck every stage of your work. You can re-run the same script a second, third and fourth time if you get new data. You can even steal - um, borrow - your code for future projects, confident that it will work. 
 
+We'll begin by loading a couple of packages. The IRE/NICAR staff has already installed them, so you don't have to. If you're studying this after the conference, be sure to install the packages first.
+  
+  * > library(tidyverse)
+  * > library(tidycensus)
+  
+The tidycensus package uses the Census Bureau's application programming interface (API) to download data directly from the census website. It is much, much faster than any of the bureau's own tools. Once you learn the basic syntax, tidycensus becomes almost second-nature.
+  
+The Census Bureau has 70+ racial categories, the vast majority of them multiracial groups (for example, Multiracial - three races - Non-Hispanic White, Non-Hispanic Black and Non-Hispanic Asian). However, it also lists simplified categories, and we'll use a simple 8-category set. Then we'll apply that to the six Denver region metro counties: Adams, Arapahoe, Broomfield, Denver, Douglas and Jefferson.  
+  
+ # define 2020 race variables
+> race_vars <- c(Total = 'P2_001N',
+               White = 'P2_005N',
+               Black = 'P2_006N',
+               AmericanIndian = 'P2_007N',
+               Asian = 'P2_008N',
+               PacIslander = 'P2_009N',
+               OtherRace = 'P2_010N',
+               Multiracial = 'P2_011N',
+               Hispanic = 'P2_002N')
+             
+             
