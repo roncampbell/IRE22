@@ -86,5 +86,5 @@ The solution is to "pivot" the data, making it wide instead of long.
   
 Here's the result:
   
-![]( ?raw=true)
+![]([ ](https://github.com/roncampbell/IRE22/blob/images/DTracts3.png)?raw=true)
 
