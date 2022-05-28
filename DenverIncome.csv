@@ -1,0 +1,7 @@
+GEOID,NAME,variable,estimate,moe
+08001,"Adams County, Colorado",MedHHIncome,73817,1593
+08005,"Arapahoe County, Colorado",MedHHIncome,80291,1154
+08014,"Broomfield County, Colorado",MedHHIncome,101206,2554
+08031,"Denver County, Colorado",MedHHIncome,72661,1246
+08035,"Douglas County, Colorado",MedHHIncome,121393,2061
+08059,"Jefferson County, Colorado",MedHHIncome,87793,1387
