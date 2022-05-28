@@ -50,4 +50,7 @@ Next, we'll make the call to the Census Bureau, specifying that we want "decenni
   geometry = FALSE
 )</code>
   
+Here's what the file looks like.
+  
+![](https://github.com/roncampbell/IRE22/blob/images/DTracts1.png?raw=true)
   
