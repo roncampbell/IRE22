@@ -25,7 +25,7 @@ We'll begin by loading a couple of packages. The IRE/NICAR staff has already ins
   
 The tidycensus package uses the Census Bureau's application programming interface (API) to download data directly from the census website. It is much, much faster than any of the bureau's own tools. Once you learn the basic syntax, tidycensus becomes almost second-nature.
   
-The Census Bureau has 70+ racial categories, the vast majority of them multiracial groups (for example, Multiracial - three races - Non-Hispanic White, Non-Hispanic Black and Non-Hispanic Asian). However, it also lists simplified categories, and we'll use a simple 8-category set. Then we'll apply that to the six Denver region metro counties: Adams, Arapahoe, Broomfield, Denver, Douglas and Jefferson.  
+The Census Bureau has 70+ racial categories, the vast majority of them multiracial groups (for example, Multiracial - three races - Non-Hispanic White, Non-Hispanic Black and Non-Hispanic Asian). However, it also lists simplified categories, and we'll use a simple 8-category set. Then we'll apply that to the six Denver region metro counties: Adams, Arapahoe, Broomfield, Denver, Douglas and Jefferson, using the 3-digit FIPS codes for those counties. You can recycle this code for your own market, substituting your state and the FIPS codes for the counties that comprise your metro.  
   
 First, we'll define the race categories, assigning plain-English names to the Census variables.
 
@@ -37,9 +37,13 @@ First, we'll define the race categories, assigning plain-English names to the Ce
                PacIslander = 'P2_009N',
                OtherRace = 'P2_010N',
                Multiracial = 'P2_011N',
-                   Hispanic = 'P2_002N')</code>
+               Hispanic = 'P2_002N')</code>
              
-Next, we'll make the call to the Census Bureau, specifying that we want "decennial" (once-a-decade) data from 2020, at the tract level, that we want it from Colorado ("CO"), from counties in the Denver metro (listing FIPS codes for the six Denver metro counties), and citing "race_vars", which we just defined, as the stuff we want. We also say "geometry = FALSE" because we don't need maps.
+Let's stop briefly for a few housekeeping notes: First, we've given the Census Bureau's variables ("P2_001N", etc.) new names with an equal sign; easy and convenient. Second, we grouped nine variables together with "c(...)". That "c" stands for "concatenate" or "combine", and it comes handy when you need to mash together several things. 
+  
+Third and most important, we've assigned all these renamed variables to yet another variable, which we're calling race_vars, and we've done that with an odd thingy, a combination of an arrow and a hyphen, "<-". This is the assignment operator,and you will use it constantly in R. There's a shortcut for the assignment operator: In Windows, it's the Alt key plus the hyphen (Alt + -); on the Mac, it's the Option key plus the hyphen (Option + -).
+  
+After defining race_vars, we'll make the call to the Census Bureau, specifying that we want "decennial" (once-a-decade) data from 2020, at the tract level, that we want it from Colorado ("CO"), from counties in the Denver metro, and citing race_vars, which we just defined, as the data we want. We also say "geometry = FALSE" because we don't need maps.
   
 <code>DenverTracts <- get_decennial(
   geography = "tract",
@@ -54,3 +58,21 @@ Here's what the file looks like.
   
 ![](https://github.com/roncampbell/IRE22/blob/images/DTracts1.png?raw=true)
   
+Well, um, okay. 
+  
+The first thing to do is to clean up the NAME field. We'll do that in a few steps, splitting the census tract, county and state into three fields, then eliminating the state field because we don't need it. (All the tracts are in Colorado.)
+  
+> DenverTracts <- DenverTracts %>% 
+  separate(NAME, into = c('Tract', 'County', 'State'), sep = ',')
+  
+This operation creates a leading white space in front of each county name. We'll remove it in the next step.
+  
+> DenverTracts$County <- str_trim(DenverTracts$County, side = "left") 
+  
+Then we remove the unneed State column.
+  
+> DenverTracts[4] <- NULL
+  
+Now our file looks like this.
+  
+![](
