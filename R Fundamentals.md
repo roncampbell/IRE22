@@ -85,7 +85,7 @@ The solution is to "pivot" the data, making it wide instead of long.
 <code>DenverTracts <- DenverTracts %>% 
   pivot_wider(names_from = variable, values_from = value)</code>
   
-Here's the result:
+Here's the result; in the view below, we can see eight of the 12 columns.  
   
 ![](https://github.com/roncampbell/IRE22/blob/images/DTracts3a.png?raw=true)
 
