@@ -100,7 +100,7 @@ Now let's sort the tracts by population in descending order.
 <code>DenverTracts %>%
   arrange(desc(Total))</code>
   
-![]()
+![](https://github.com/roncampbell/IRE22/blob/images/DTracts3b.png?raw=true)
  
   
   
