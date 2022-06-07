@@ -102,7 +102,21 @@ Now let's sort the tracts by population in descending order.
   
 ![](https://github.com/roncampbell/IRE22/blob/images/DTracts3b.png?raw=true)
   
-There are six counties in the Denver metro area. Let's focus on just one of them, Denver. We'll use a filter and a double-equal sign, <code>==</code>. In R, a single-equal sign, <code>=</code>, is used to assign variables. To distinguish the tracts in Denver City and County from those in the greater Denver metro area, we'll call this data frame DenverCityTracts.
+There are six counties in the Denver metro area. Let's summarize data for each county. We'll do that using the R "group_by" function; if you have used  SQL databases, this will be familiar territory.
+  
+<code>DenverCounties <- DenverTracts %>% 
+  group_by(County) %>%
+  summarize(Tracts = n(),
+            PopTotal = sum(Total),
+            WhiteTotal = sum(White),
+            BlackTotal = sum(Black),
+            HispanicTotal = sum(Hispanic),
+            AsianTotal = sum(Asian)
+  ) </code>
+  
+![]()
+  
+  focus on just one of them, Denver. We'll use a filter and a double-equal sign, <code>==</code>. In R, a single-equal sign, <code>=</code>, is used to assign variables. 
   
 <code>DenverCityTracts <- DenverTracts %>%
   filter(County == 'Denver County')
@@ -116,4 +130,6 @@ We've gone from 688 tracts in the metro area to 178 tracts in the city of Denver
   
 ![](https://github.com/roncampbell/IRE22/blob/images/DTracts4c.png?raw=true)
  
+With that, we've gone from 688 tracts down to 37 - the 37 largest tracts in the city of Denver.
   
+So far, we've been looking at tracts. But we can slice the data other ways. Let's return to the original 
