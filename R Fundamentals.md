@@ -107,7 +107,7 @@ There are six counties in the Denver metro area. Let's focus on just one of them
 <code>DenverCityTracts <- DenverTracts %>%
   filter(County == 'Denver County')
   
-![](https://github.com/roncampbell/IRE22/blob/images/DTracts4.png?raw=true)
+![]()
  
   
   
