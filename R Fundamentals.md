@@ -78,7 +78,7 @@ Now our file looks like this.
   
 ![](https://github.com/roncampbell/IRE22/blob/images/DTracts2.png?raw=true)
   
-                     In the last couple of commands, we introduced a new operator, the pipe: <code>%>%</code>. In R, the pipe lets us string several commands together. You can read it to say, "And then do this." 
+In the last couple of commands, we introduced a new operator, the pipe: <code>%>%</code>. In R, the pipe lets us string several commands together. You can read it to say, "And then do this." 
   
 For example, the plain-English version of the R command where you first saw the pipe is "Take the existing DenverTracts data frame, separate the NAME colume into new columns called Tract, County and State, using a comma as the separator, and put the results back into the DenverTracts data frame." 
   
