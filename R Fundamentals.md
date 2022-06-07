@@ -114,7 +114,7 @@ There are six counties in the Denver metro area. Let's summarize data for each c
             AsianTotal = sum(Asian)
   ) </code>
   
-![]()
+![](https://github.com/roncampbell/IRE22/blob/images/DTracts5.png?raw=true)
   
   focus on just one of them, Denver. We'll use a filter and a double-equal sign, <code>==</code>. In R, a single-equal sign, <code>=</code>, is used to assign variables. 
   
