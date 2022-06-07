@@ -109,5 +109,11 @@ There are six counties in the Denver metro area. Let's focus on just one of them
   
 ![](https://github.com/roncampbell/IRE22/blob/images/DTracts4b.png?raw=true)
  
+We've gone from 688 tracts in the metro area to 178 tracts in the city of Denver. Many of the remaining tracts are small. Let's focus on the largest tracts, those with at least 5,000 residents. We can do that by making a small change to the code we just wrote creating DenverCityTracts.
   
+<code>DenverCityTracts <- DenverTracts %>%
+  filter(County == 'Denver County' & Total >= 5000)</code>
+  
+![]()
+ 
   
