@@ -80,11 +80,11 @@ Now our file looks like this.
   
 In the last couple of commands, we introduced a new operator, the pipe: <code>%>%</code>. In R, the pipe lets us string several commands together. You can read it to say, "And then do this." 
   
-For example, the plain-English version of the R command where you first saw the pipe is "Take the existing DenverTracts data frame, separate the NAME colume into new columns called Tract, County and State, using a comma as the separator, and put the results back into the DenverTracts data frame." 
+For example, the plain-English version of the R command where you first saw the pipe is "Take the existing DenverTracts data frame, separate the NAME column into new columns called Tract, County and State, using a comma as the separator, and put the results back into the DenverTracts data frame." 
   
 The shortcut for the pipe in Windows is Alt-Shift-M; in Mac it is Command-Shift-M.
                      
-Getting better. But we want to see each tract's information on a single row. Right now we can see a tract's total on one line; then we have to skip down several lines to see the information on its White population, and skip down many more lines to see the Black population and so forth. 
+The census data now looks better. But we want to see each tract's information on a single row. Right now we can see a tract's total on one line; then we have to skip down several lines to see the information on its White population, and skip down many more lines to see the Black population and so forth. 
   
 The solution is to "pivot" the data, making it wide instead of long.
   
