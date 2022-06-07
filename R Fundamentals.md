@@ -89,3 +89,12 @@ Here's the result; in the view below, we can see eight of the 12 columns.
   
 ![](https://github.com/roncampbell/IRE22/blob/images/DTracts3a.png?raw=true)
 
+Now let's sort the tracts by population in descending order. 
+  
+<code>DenverTracts %>%
+  arrange(desc(Total))</code>
+  
+![]()
+ 
+  
+  
