@@ -114,6 +114,6 @@ We've gone from 688 tracts in the metro area to 178 tracts in the city of Denver
 <code>DenverCityTracts <- DenverTracts %>%
   filter(County == 'Denver County' & Total >= 5000)</code>
   
-![]()
+![](https://github.com/roncampbell/IRE22/blob/images/DTracts4c.png?raw=true)
  
   
