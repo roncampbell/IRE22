@@ -101,6 +101,13 @@ Now let's sort the tracts by population in descending order.
   arrange(desc(Total))</code>
   
 ![](https://github.com/roncampbell/IRE22/blob/images/DTracts3b.png?raw=true)
+  
+There are six counties in the Denver metro area. Let's focus on just one of them, Denver. We'll use a filter and a double-equal sign, <code>==</>. In R, a single-equal sign, <code>=</code>, is used to assign variables. To distinguish the tracts in Denver City and County from those in the greater Denver metro area, we'll call this data frame DenverCityTracts.
+  
+<code>DenverCityTracts <- DenverTracts %>%
+  filter(County == 'Denver County')
+  
+![]()
  
   
   
