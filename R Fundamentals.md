@@ -36,7 +36,7 @@ DemoTracts.R produces a comma-separated variable (csv) file, DenverTracts.csv, t
   
 Here's what the file looks like.
   
-![](https://github.com/roncampbell/IRE22/blob/images/DTracts1.png?raw=true)
+![](https://github.com/roncampbell/IRE22/blob/images/DTracts2a.png?raw=true)
 
 Now let's sort the tracts by population in descending order. 
   
