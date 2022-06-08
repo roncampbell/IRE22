@@ -10,11 +10,12 @@ To load a package for use, simply enter this at the prompt:
 
 > library(xxx) [where xxx is the name of the package -- and notice, this time the package name is NOT in quotes]
 
-A few more points before we dig in:
+Some rules of the R road before we dig in:
 
 * Capitalization matters. If a variable is spelled "Cat", don't write "cat" or "CAT". 
 * Punctuation matters. R will help you by creating parentheses in pairs; don't erase closing parentheses by mistake.
 * Assign variables with this mark <code><-</code> (left arrow and hyphen). This is the assignment operator. The shortcut on Windows is Alt + minus sign; on Mac it is Option + minus sign.
+* Combine two or more commands that you want done in sequence top-to-bottom with the pipe, <code>%>%</code>. The shortcut on Windows is Shift-Alt-M; on Mac it is Shift-Command-M. You can read the pipe as "and then do this." 
 * Comment out a line with the <code>#</code> (hash) mark.
 * Finally, you can create a script in R. In fact, you can create scripts several different ways, including as a simple script, as a notebook and as a Markdown document. This is a Very Big Deal. You can insert comments in your code, helpful notes to your collaborators and your future self. You can recheck every stage of your work. You can re-run the same script a second, third and fourth time if you get new data. You can even steal - um, borrow - your code for future projects, confident that it will work. 
 
@@ -25,11 +26,11 @@ We'll begin by loading a couple of packages. If you're studying this after the c
   
 The tidycensus package uses the Census Bureau's application programming interface (API) to download data directly from the census website. It is much, much faster than any of the bureau's own tools. Once you learn the basic syntax, tidycensus becomes almost second-nature.  
   
-Time is short during the class, and hotel conference room internet hookups are notoriously slow. So we're going to take a shortcut. I wrote a script, <code>DemoTracts.R</code>., that pulls 2020 census tract data for the six Denver region metro counties: Adams, Arapahoe, Broomfield, Denver, Douglas and Jefferson, using the 3-digit FIPS codes for those counties. 
+Time is short during the class, and conference room internet hookups are notoriously slow. So we're going to take a shortcut. I wrote a script, <code>DemoTracts.R</code>., that pulls 2020 census tract data for the six Denver region metro counties: Adams, Arapahoe, Broomfield, Denver, Douglas and Jefferson, using the 3-digit FIPS codes for those counties. 
   
 You'll find DemoTracts.R in the Data portion of this GitHub repo. Feel free to recycle this script for your own market, substituting your state and the FIPS codes for the counties that comprise your metro.
   
-It produces a CSV (comma-separated variable) file that we will use right now, using the R function <code>read_csv()</code>.
+DemoTracts.R produces a comma-separated variable (csv) file, DenverTracts.csv, that we will use right now, using the R function <code>read_csv()</code>.
   
 <code>DenverTracts <- read_csv("DenverTracts.csv")
   
@@ -56,12 +57,8 @@ Now our file looks like this.
   
 ![](https://github.com/roncampbell/IRE22/blob/images/DTracts2.png?raw=true)
   
-In the last couple of commands, we introduced a new operator, the pipe: <code>%>%</code>. In R, the pipe lets us string several commands together. You can read it to say, "And then do this." 
+In the last couple of commands, you saw the pipe operator at work. For example, the plain-English version of the R command where you first saw the pipe is "Take the existing DenverTracts data frame, separate the NAME column into new columns called Tract, County and State, using a comma as the separator, and put the results back into the DenverTracts data frame." 
   
-For example, the plain-English version of the R command where you first saw the pipe is "Take the existing DenverTracts data frame, separate the NAME column into new columns called Tract, County and State, using a comma as the separator, and put the results back into the DenverTracts data frame." 
-  
-The shortcut for the pipe in Windows is Alt-Shift-M; in Mac it is Command-Shift-M.
-                     
 The census data now looks better. But we want to see each tract's information on a single row. Right now we can see a tract's total on one line; then we have to skip down several lines to see the information on its White population, and skip down many more lines to see the Black population and so forth. 
   
 The solution is to "pivot" the data, making it wide instead of long.
@@ -94,7 +91,7 @@ There are six counties in the Denver metro area. Let's summarize data for each c
   
 ![](https://github.com/roncampbell/IRE22/blob/images/DTracts5.png?raw=true)
   
-It would be useful to know the percentages for a few of the major races. While we're at it, let's reorder the columns so we can see the percentages without having to scroll across.
+It would be useful to know the percentages for some of the major races. While we're at it, let's reorder the columns so we can see the percentages without having to scroll across.
   
 <code>DenverCounties <- DenverCounties %>%
   mutate(WhitePer = 100 * (WhiteTotal / PopTotal),
