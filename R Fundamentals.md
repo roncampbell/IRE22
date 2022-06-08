@@ -125,7 +125,7 @@ It would be useful to know the percentages for a few of the major races. While w
          AsianPer = 100 * (AsianTotal / PopTotal)) %>%
   select(County, Tracts, PopTotal, WhitePer, HispanicPer, BlackPer, AsianPer, WhiteTotal, HispanicTotal, BlackTotal, AsianTotal)
 
-![]()  
+![](https://github.com/roncampbell/IRE22/blob/images/DTracts6.png?raw=true)  
     
 Now let's focus on just one of the six counties - the biggest, Denver City and County. We'll use a filter and a double-equal sign, <code>==</code>. In R, a single-equal sign, <code>=</code>, is used to assign variables. 
   
