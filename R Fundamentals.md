@@ -23,9 +23,11 @@ We'll begin by loading a couple of packages. If you're studying this after the c
   * > library(tidyverse)
   * > library(tidycensus)
   
-The tidycensus package uses the Census Bureau's application programming interface (API) to download data directly from the census website. It is much, much faster than any of the bureau's own tools. Once you learn the basic syntax, tidycensus becomes almost second-nature.
+The tidycensus package uses the Census Bureau's application programming interface (API) to download data directly from the census website. It is much, much faster than any of the bureau's own tools. Once you learn the basic syntax, tidycensus becomes almost second-nature.  
   
-The Census Bureau has 70+ racial categories, the vast majority of them multiracial groups (for example, Multiracial - three races - Non-Hispanic White, Non-Hispanic Black and Non-Hispanic Asian). However, it also lists simplified categories, and we'll use a simple 8-category set. Then we'll apply that set to the six Denver region metro counties: Adams, Arapahoe, Broomfield, Denver, Douglas and Jefferson, using the 3-digit FIPS codes for those counties. You can recycle this script for your own market, substituting your state and the FIPS codes for the counties that comprise your metro.  
+The Census Bureau has 70+ racial categories, the vast majority of them multiracial groups (for example, Multiracial - three races - Non-Hispanic White, Non-Hispanic Black and Non-Hispanic Asian). However, it also lists simplified categories, and we'll use a simple 8-category set. Then we'll apply that set to the six Denver region metro counties: Adams, Arapahoe, Broomfield, Denver, Douglas and Jefferson, using the 3-digit FIPS codes for those counties. You can recycle this script for your own market, substituting your state and the FIPS codes for the counties that comprise your metro. 
+  
+During the conference, we're going to take a shortcut -- importing a CSV (comma-separated variable) file with key 2020 Census data for the Denver metro. The file is called <code>DenverTracts.csv</code>, and you can find the script that created it in the Data section of this GitHub repo. Better yet, you can modify it, substiuting your own state and county or counties to get local data!
   
 First, we'll define the race categories, assigning plain-English names to the Census variables.
 
