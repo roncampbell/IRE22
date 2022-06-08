@@ -37,38 +37,6 @@ DemoTracts.R produces a comma-separated variable (csv) file, DenverTracts.csv, t
 Here's what the file looks like.
   
 ![](https://github.com/roncampbell/IRE22/blob/images/DTracts1.png?raw=true)
-  
-Well, um, okay. 
-  
-The first thing to do is to clean up the NAME field. We'll do that in a few steps, splitting the census tract, county and state into three fields, then eliminating the state field because we don't need it. (All the tracts are in Colorado.)
-  
-> DenverTracts <- DenverTracts %>% 
-  separate(NAME, into = c('Tract', 'County', 'State'), sep = ',')
-  
-This operation creates a leading white space in front of each county name. We'll remove it in the next step.
-  
-> DenverTracts$County <- str_trim(DenverTracts$County, side = "left") 
-  
-Then we remove the unnecessary State column.
-  
-> DenverTracts[4] <- NULL
-  
-Now our file looks like this.
-  
-![](https://github.com/roncampbell/IRE22/blob/images/DTracts2.png?raw=true)
-  
-In the last couple of commands, you saw the pipe operator at work. For example, the plain-English version of the R command where you first saw the pipe is "Take the existing DenverTracts data frame, separate the NAME column into new columns called Tract, County and State, using a comma as the separator, and put the results back into the DenverTracts data frame." 
-  
-The census data now looks better. But we want to see each tract's information on a single row. Right now we can see a tract's total on one line; then we have to skip down several lines to see the information on its White population, and skip down many more lines to see the Black population and so forth. 
-  
-The solution is to "pivot" the data, making it wide instead of long.
-  
-> DenverTracts <- DenverTracts %>% 
-  pivot_wider(names_from = variable, values_from = value)</code>
-  
-Here's the result; in the view below, we can see eight of the 12 columns.  
-  
-![](https://github.com/roncampbell/IRE22/blob/images/DTracts3a.png?raw=true)
 
 Now let's sort the tracts by population in descending order. 
   
