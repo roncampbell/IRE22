@@ -32,7 +32,7 @@ You'll find DemoTracts.R in the Data portion of this GitHub repo. Feel free to r
   
 DemoTracts.R produces a comma-separated variable (csv) file, DenverTracts.csv, that we will use right now, using the R function <code>read_csv()</code>.
   
-<code>DenverTracts <- read_csv("DenverTracts.csv")
+  <code>DenverTracts <- read_csv("DenverTracts.csv")</code>
   
 Here's what the file looks like.
   
@@ -90,6 +90,7 @@ There are six counties in the Denver metro area. Let's summarize data for each c
   ) </code>
   
 ![](https://github.com/roncampbell/IRE22/blob/images/DTracts5.png?raw=true)
+
   
 It would be useful to know the percentages for some of the major races. While we're at it, let's reorder the columns so we can see the percentages without having to scroll across.
   
@@ -98,24 +99,26 @@ It would be useful to know the percentages for some of the major races. While we
          HispanicPer = 100 * (HispanicTotal / PopTotal),
          BlackPer = 100 * (BlackTotal / PopTotal),
          AsianPer = 100 * (AsianTotal / PopTotal)) %>%
-  select(County, Tracts, PopTotal, WhitePer, HispanicPer, BlackPer, AsianPer, WhiteTotal, HispanicTotal, BlackTotal, AsianTotal)
+  select(County, Tracts, PopTotal, WhitePer, HispanicPer, BlackPer, AsianPer, WhiteTotal, HispanicTotal, BlackTotal, AsianTotal)</code>
 
 ![](https://github.com/roncampbell/IRE22/blob/images/DTracts6.png?raw=true)  
-    
+
+  
 Now let's focus on just one of the six counties - the biggest, Denver City and County. We'll use a filter and a double-equal sign, <code>==</code>. In R, a single-equal sign, <code>=</code>, is used to assign variables. 
   
 <code>DenverCityTracts <- DenverTracts %>%
-  filter(County == 'Denver County')
+  filter(County == 'Denver County')</code>
   
 ![](https://github.com/roncampbell/IRE22/blob/images/DTracts4b.png?raw=true)
  
+
 We've gone from 688 tracts in the metro area to 178 tracts in the city of Denver. Many of the remaining tracts are small. Let's focus on the largest tracts, those with at least 5,000 residents. We can do that by making a small change to the code we just wrote creating DenverCityTracts.
   
 <code>DenverCityTracts <- DenverTracts %>%
   filter(County == 'Denver County' & Total >= 5000)</code>
   
 ![](https://github.com/roncampbell/IRE22/blob/images/DTracts4c.png?raw=true)
- 
-With that, we've gone from 688 tracts down to 37 - the 37 largest tracts in the city of Denver.
+
   
-So far, we've been looking at tracts. But we can slice the data other ways. Let's return to the original 
+With that, we've gone from 688 tracts down to 37 - the 37 largest tracts in the city of Denver.
+
