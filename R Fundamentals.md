@@ -43,7 +43,7 @@ Now let's sort the tracts by population in descending order.
 > DenverTracts %>%
   arrange(desc(Total))</code>
   
-![](https://github.com/roncampbell/IRE22/blob/images/DTracts3b.png?raw=true)
+![](https://github.com/roncampbell/IRE22/blob/images/DTracts2b.png?raw=true)
   
 There are six counties in the Denver metro area. Let's summarize data for each county. We'll do that using the R "group_by" function; if you have used  SQL databases, this will be familiar territory.
   
