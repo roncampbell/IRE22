@@ -25,37 +25,13 @@ We'll begin by loading a couple of packages. If you're studying this after the c
   
 The tidycensus package uses the Census Bureau's application programming interface (API) to download data directly from the census website. It is much, much faster than any of the bureau's own tools. Once you learn the basic syntax, tidycensus becomes almost second-nature.  
   
-The Census Bureau has 70+ racial categories, the vast majority of them multiracial groups (for example, Multiracial - three races - Non-Hispanic White, Non-Hispanic Black and Non-Hispanic Asian). However, it also lists simplified categories, and we'll use a simple 8-category set. Then we'll apply that set to the six Denver region metro counties: Adams, Arapahoe, Broomfield, Denver, Douglas and Jefferson, using the 3-digit FIPS codes for those counties. You can recycle this script for your own market, substituting your state and the FIPS codes for the counties that comprise your metro. 
+Time is short during the class, and hotel conference room internet hookups are notoriously slow. So we're going to take a shortcut. I wrote a script, <code>DemoTracts.R</code>., that pulls 2020 census tract data for the six Denver region metro counties: Adams, Arapahoe, Broomfield, Denver, Douglas and Jefferson, using the 3-digit FIPS codes for those counties. 
   
-During the conference, we're going to take a shortcut -- importing a CSV (comma-separated variable) file with key 2020 Census data for the Denver metro. The file is called <code>DenverTracts.csv</code>, and you can find the script that created it in the Data section of this GitHub repo. Better yet, you can modify it, substiuting your own state and county or counties to get local data!
+You'll find DemoTracts.R in the Data portion of this GitHub repo. Feel free to recycle this script for your own market, substituting your state and the FIPS codes for the counties that comprise your metro.
   
-First, we'll define the race categories, assigning plain-English names to the Census variables.
-
-<code>race_vars <- c(Total = 'P2_001N',
-               White = 'P2_005N',
-               Hispanic = 'P2_002N',
-               Black = 'P2_006N',
-               AmericanIndian = 'P2_007N',
-               Asian = 'P2_008N',
-               PacIslander = 'P2_009N',
-               OtherRace = 'P2_010N',
-               Multiracial = 'P2_011N'
-               )</code>
-             
-Let's stop briefly for a few housekeeping notes: First, we've given the Census Bureau's variables ("P2_001N", etc.) new names with an equal sign; easy and convenient. Second, we grouped nine variables together with "c(...)". That "c" stands for "concatenate" or "combine", and it comes in handy when you need to mash together several things. 
+It produces a CSV (comma-separated variable) file that we will use right now, using the R function <code>read_csv()</code>.
   
-Third and most important, we've assigned all these renamed variables to yet another variable, which we're calling race_vars, and we've done that with the assignment operator, which I described above. You'll use the assignment operator way more often than the equal sign in R. 
-  
-We'll then make the call to the Census Bureau, specifying that we want "decennial" (once-a-decade) data from 2020, at the tract level, that we want it from Colorado ("CO"), from counties in the Denver metro, and that we specifically want race_vars, which we just defined. We also say "geometry = FALSE" because we don't need maps.
-  
-<code>DenverTracts <- get_decennial(
-  geography = "tract",
-  state = "CO",
-  county = c("001", "005", "014", "031", "035", "059"),
-  variables = race_vars,
-  year = 2020,
-  geometry = FALSE
-)</code>
+<code>DenverTracts <- read_csv("DenverTracts.csv")
   
 Here's what the file looks like.
   
