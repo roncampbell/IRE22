@@ -116,7 +116,18 @@ There are six counties in the Denver metro area. Let's summarize data for each c
   
 ![](https://github.com/roncampbell/IRE22/blob/images/DTracts5.png?raw=true)
   
-  focus on just one of them, Denver. We'll use a filter and a double-equal sign, <code>==</code>. In R, a single-equal sign, <code>=</code>, is used to assign variables. 
+It would be useful to know the percentages for a few of the major races. While we're at it, let's reorder the columns so we can see the percentages without having to scroll across.
+  
+<code>DenverCounties <- DenverCounties %>%
+  mutate(WhitePer = 100 * (WhiteTotal / PopTotal),
+         HispanicPer = 100 * (HispanicTotal / PopTotal),
+         BlackPer = 100 * (BlackTotal / PopTotal),
+         AsianPer = 100 * (AsianTotal / PopTotal)) %>%
+  select(County, Tracts, PopTotal, WhitePer, HispanicPer, BlackPer, AsianPer, WhiteTotal, HispanicTotal, BlackTotal, AsianTotal)
+
+![]()  
+    
+Now let's focus on just one of the six counties - the biggest, Denver City and County. We'll use a filter and a double-equal sign, <code>==</code>. In R, a single-equal sign, <code>=</code>, is used to assign variables. 
   
 <code>DenverCityTracts <- DenverTracts %>%
   filter(County == 'Denver County')
