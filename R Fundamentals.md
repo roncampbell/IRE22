@@ -21,7 +21,11 @@ Some rules of the R road before we dig in:
 * Comment out a line with the <code>#</code> (hash) mark.
 * Finally, you can create a script in R. In fact, you can create scripts several different ways, including as a simple script, as a notebook and as a Markdown document. This is a Very Big Deal. You can insert comments in your code, helpful notes to your collaborators and your future self. You can recheck every stage of your work. You can re-run the same script a second, third and fourth time if you get new data. You can even steal - um, borrow - your code for future projects, confident that it will work. 
 
-We'll begin by loading a couple of packages. If you're studying this after the conference, be sure to install the packages first.
+We'll begin by starting R Studio, then clicking at upper right to create a new project. A project in R is a container for our data and scripts. The project will take its name from the folder where we place it -- either a new folder created for the purpose or an existing folder where we already have data. The IRE/NICAR staff has already created a folder for this class, and we'll put our project there.
+  
+Next, go to the upper left and click on the green "+" sign; then click on R Notebook. You now have the beginning of a script.
+    
+We'll begin the script by loading a couple of packages. If you're studying this after the conference, be sure to install the packages -- reminder: <code>install.packages("xxxx")</code> -- first.
   
   * > library(tidyverse)
   * > library(tidycensus)
