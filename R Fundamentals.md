@@ -4,7 +4,7 @@
 
 R's power comes from the thousands of packages that programmers and scientists have created to extend it. We'll be using two of those packages to explore census data in the Denver metro area.
 
-In R, packages first must be installed and then loaded. The IRE/NICAR staff has already installed the packages we'll be using for this lesson, but here for future reference is how to install a package:
+In R, packages first must be installed onto the hard drive and then loaded into memory. The IRE/NICAR staff has already installed the packages we'll be using for this lesson, but here for future reference is how to install a package:
 
 > install.packages("xxx")  [where "xxx" is the name of a package]
 
@@ -19,22 +19,20 @@ Some rules of the R road before we dig in:
 * Assign variables with this mark <code><-</code> (left arrow and hyphen). This is the assignment operator. The shortcut on Windows is Alt + minus sign; on Mac it is Option + minus sign.
 * Combine two or more commands that you want done in sequence top-to-bottom with the pipe, <code>%>%</code>. The shortcut on Windows is Shift-Alt-M; on Mac it is Shift-Command-M. You can read the pipe as "and then do this." 
 * Comment out a line with the <code>#</code> (hash) mark.
-* Finally, you can create a script in R. In fact, you can create scripts several different ways, including as a simple script, as a notebook and as a Markdown document. This is a Very Big Deal. You can insert comments in your code, helpful notes to your collaborators and your future self. You can recheck every stage of your work. You can re-run the same script a second, third and fourth time if you get new data. You can even steal - um, borrow - your code for future projects, confident that it will work. 
+* Finally, you can create a script in R. In fact, you can create scripts several different ways: as a simple script, as a notebook and as a Markdown document. This is a Very Big Deal. You can insert comments in your code, helpful notes to your collaborators and your future self. You can recheck every stage of your work. You can re-run the same script a second, third and fourth time if you get new data. You can even steal - um, borrow - part or all of one script for future projects, confident that it will work. 
 
-We'll begin by starting R Studio, then clicking at upper right to create a new project. A project in R is a container for our data and scripts. The project will take its name from the folder where we place it -- either a new folder created for the purpose or an existing folder where we already have data. The IRE/NICAR staff has already created a folder for this class, and we'll put our project there.
+We'll begin by starting R Studio, then clicking at upper right to create a new project. A project in R is a container for data and scripts. The project will take its name from the folder where we place it -- either a new folder created for the purpose or an existing folder where we already have data. The IRE/NICAR staff has already created a folder for this class, and we'll put our project there.
   
 Next, go to the upper left and click on the green "+" sign; then click on R Notebook. You now have the beginning of a script.
     
-We'll begin the script by loading a couple of packages. If you're studying this after the conference, be sure to install the packages -- reminder: <code>install.packages("xxxx")</code> -- first.
+We'll begin the script by loading a couple of packages. If you're studying this after the conference, be sure that you have installed the packages -- reminder: <code>install.packages("xxxx")</code> -- first before loading them into memory.
   
   * > library(tidyverse)
   * > library(tidycensus)
   
 The tidycensus package uses the Census Bureau's application programming interface (API) to download data directly from the census website. It is much, much faster than any of the bureau's own tools. Once you learn the basic syntax, tidycensus becomes almost second-nature.  
   
-Time is short during the class, and conference room internet hookups are notoriously slow. So we're going to take a shortcut. I wrote a script, <code>DemoTracts.R</code>., that pulls 2020 census tract data for the six Denver region metro counties: Adams, Arapahoe, Broomfield, Denver, Douglas and Jefferson, using the 3-digit FIPS codes for those counties. 
-  
-You'll find DemoTracts.R in the Data portion of this GitHub repo. Feel free to recycle this script for your own market, substituting your state and the FIPS codes for the counties that comprise your metro.
+Time is short during the class, and conference room internet hookups are notoriously slow. So we're going to take a shortcut. I wrote a script, <code>DemoTracts.R</code>., that pulls 2020 census tract data for the six Denver region metro counties: Adams, Arapahoe, Broomfield, Denver, Douglas and Jefferson, using the 3-digit FIPS codes for those counties. You'll find DemoTracts.R in the Data portion of this GitHub repo. Feel free to recycle this script for your own market, substituting your state and the FIPS codes for the counties that comprise your metro. 
   
 DemoTracts.R produces a comma-separated variable (csv) file, DenverTracts.csv, that we will use right now, using the R function <code>read_csv()</code>.
   
@@ -51,7 +49,7 @@ Now let's sort the tracts by population in descending order.
   
 ![](https://github.com/roncampbell/IRE22/blob/images/DTracts2b.png?raw=true)
   
-There are six counties in the Denver metro area. Let's summarize data for each county. We'll do that using the R "group_by" function; if you have used  SQL databases, this will be familiar territory.
+There are six counties in the Denver metro area. Let's summarize data for each county. We'll do that using the R "group_by" function. If you have used  SQL databases, this will be familiar.
   
 > DenverCounties <- DenverTracts %>% 
   group_by(County) %>%
