@@ -1,6 +1,8 @@
 # Fundamentals of R
 
-<code>R</code> can clean, analyze and visualze vast amounts of data efficiently. Its power comes from the thousands of packages that programmers and scientists have created to extend it. We'll be using two of those packages to explore census data in the Denver metro area.
+<code>R</code> can clean, analyze and visualze vast amounts of data efficiently. R is open-source -- that is, free -- and is widely used in the academic and business world. It works well on Mac, Windows and Unix. For a guide to installing R and the most popular front-end, R Studio, see this [guide](https://bit.ly/ire-install-r) prepared by the IRE/NICAR staff.
+
+R's power comes from the thousands of packages that programmers and scientists have created to extend it. We'll be using two of those packages to explore census data in the Denver metro area.
 
 In R, packages first must be installed and then loaded. The IRE/NICAR staff has already installed the packages we'll be using for this lesson, but here for future reference is how to install a package:
 
