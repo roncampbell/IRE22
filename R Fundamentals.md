@@ -85,6 +85,8 @@ There are 178 tracts in Denver County. We can get an idea of their size with the
   
 > summary(DenverCityTracts$Total)
   
+![]()  
+  
 This simple command produces six measures for a numerical column: the minimum, maximum, median, mean, and 1st and 3rd quartiles. It also lists the number of NA (missing) values. The summary tells us that a quarter of the Denver tracts have fewer than 3,000 residents while a quarter have at least 4,755 residents.
   
 Let's focus on the largest tracts, those with at least 4,755 residents. We can do that by making a small change to the code we just wrote creating DenverCityTracts.
