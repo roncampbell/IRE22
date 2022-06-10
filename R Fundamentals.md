@@ -116,6 +116,6 @@ The tidyverse package includes a wonderful visualization program, ggplot2. We'll
 > ggplot(DenverIncome, aes(x = Income, y = NAME)) +
   geom_point(size = 3, color = "royalblue")
   
- ![]()
+ ![](https://github.com/roncampbell/IRE22/blob/images/DenCoPlot.png?raw=true)
   
   
