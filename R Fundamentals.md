@@ -107,4 +107,4 @@ R allows you to import data directly from the web. We'll pull some income data f
 )
 DenverIncome
                   
-                  
+![]()                  
