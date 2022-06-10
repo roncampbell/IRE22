@@ -96,3 +96,15 @@ Let's focus on the largest tracts, those with at least 4,755 residents. We can d
  
 With that, we've gone from 688 tracts down to 45 - the 45 largest tracts in the city of Denver.
 
+R allows you to import data directly from the web. We'll pull some income data for the Denver metro area now using the tidycensus package.
+  
+> DenverIncome <- get_acs(
+  geography = "county",
+  state = "CO",
+  county = c('001', '005', '014', '031', '035', '059'),
+  variables = c(MedHHIncome = 'B19013_001'),
+  year = 2020
+)
+DenverIncome
+                  
+                  
