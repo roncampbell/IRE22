@@ -125,3 +125,17 @@ The tidyverse package includes a wonderful visualization program, ggplot2. We'll
   geom_point(size = 3, color = "royalblue")
   
 ![](https://github.com/roncampbell/IRE22/blob/images/DenCoInc2.png?raw=true)
+
+Finally, we'll add a title, change the background and eliminate the axis legends. For this part, we'll just take what we wrote and add a few new lines.
+  
+> ggplot(DenverIncome, aes(x = estimate, y =reorder(NAME, estimate))) +
+  geom_errorbarh(aes(xmin = estimate - moe, xmax = estimate + moe)) +
+  geom_point(size = 3, color = "royalblue") +
+  labs(title = "Median household income - Denver metro",
+       caption = "Source: American Community Survey",
+       x = "",
+       y = "") +
+  theme_minimal()
+  
+ ![]()
+  
