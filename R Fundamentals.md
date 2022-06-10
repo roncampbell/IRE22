@@ -117,16 +117,22 @@ The tidyverse package includes a wonderful visualization program, ggplot2. We'll
   geom_point(size = 3, color = "royalblue")
   
  ![](https://github.com/roncampbell/IRE22/blob/images/DenCoPlot.png?raw=true)
+ 
+R has many colors built-in. Just type <code>colors()</code> in the console, hit enter, and read the list of 650+ colors for yourself. There are also add-on packages of colors like viridis and RColorBrewer.
   
- Let's improve this. The median income for Denver and Adams counties look identical or nearly so. And the chart would be easier to read if the values were arranged by income instead of by name. 
+Let's improve the chart. The median income for Denver and Adams counties look identical or nearly so. And the chart would be easier to read if the values were arranged by income instead of by name. 
   
 > ggplot(DenverIncome, aes(x = estimate, y =reorder(NAME, estimate))) +
   geom_errorbarh(aes(xmin = estimate - moe, xmax = estimate + moe)) +
   geom_point(size = 3, color = "royalblue")
+
+The vertical (y) axis is reordered by adding the estimate to the NAME field. 
+  
+The geom_errorbarh() adds horizontal bars depicting the margin of error (MOE) around each point. The minimum MOE is the estimate minus the MOE; the maximum MOE is the estimate plus the MOE.   
   
 ![](https://github.com/roncampbell/IRE22/blob/images/DenCoInc2.png?raw=true)
 
-Finally, we'll add a title, change the background and eliminate the axis legends. For this part, we'll just take what we wrote and add a few new lines.
+Finally, we'll add a title, change the background and eliminate the axis legends. For this part, we'll just take what we wrote a moment ago and add a few new lines.
   
 > ggplot(DenverIncome, aes(x = estimate, y =reorder(NAME, estimate))) +
   geom_errorbarh(aes(xmin = estimate - moe, xmax = estimate + moe)) +
