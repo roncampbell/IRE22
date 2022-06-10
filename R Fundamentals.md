@@ -108,3 +108,14 @@ R allows you to import data directly from the web. We'll pull some income data f
 DenverIncome
                   
 ![](https://github.com/roncampbell/IRE22/blob/images/DenCoInc1.png?raw=true)                  
+
+This is the median household income for each of the six counties in the Denver metro. The data comes from the American Community Survey 2020 5-Year Estimates. The tidycensus syntax works like this: The first part, get_xxx asks for a specific census product, in this case, acs -- the American Community Survey. The next part, geography, is where we specify if want information broken down by state, congressional district, ZIP Code, tract or something else. Then we specify the state, using the postal abbreviation. At this point, we're asking for every county in Colorado; but on the next line, we limit it to six counties, specifying them by their FIPS codes. When listing two or more items, we precede the list with a "c", short for "combine" or "concatenate". Finally we list the census variable we want and, for convenience, assign it a plain-English name.                  
+
+The tidyverse package includes a wonderful visualization program, ggplot2. We'll use it to compare median household income among the six counties.
+                  
+> ggplot(DenverIncome, aes(x = Income, y = NAME)) +
+  geom_point(size = 3, color = "royalblue")
+  
+ ![]()
+  
+  
