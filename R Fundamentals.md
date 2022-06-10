@@ -124,4 +124,4 @@ The tidyverse package includes a wonderful visualization program, ggplot2. We'll
   geom_errorbarh(aes(xmin = estimate - moe, xmax = estimate + moe)) +
   geom_point(size = 3, color = "royalblue")
   
-![]()
+![](https://github.com/roncampbell/IRE22/blob/images/DenCoInc2.png?raw=true)
