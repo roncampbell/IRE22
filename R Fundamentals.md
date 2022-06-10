@@ -63,7 +63,7 @@ There are six counties in the Denver metro area. Let's summarize data for each c
 ![](https://github.com/roncampbell/IRE22/blob/images/DTracts5.png?raw=true)
 
   
-It would be useful to know the percentages for some of the major races. While we're at it, let's reorder the columns so we can see the percentages without having to scroll across.
+It would be useful to know the percentages for some of the major races. 
   
 > DenverCounties <- DenverCounties %>%
   mutate(WhitePer = 100 * (WhiteTotal / PopTotal),
