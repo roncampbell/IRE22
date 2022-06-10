@@ -118,4 +118,10 @@ The tidyverse package includes a wonderful visualization program, ggplot2. We'll
   
  ![](https://github.com/roncampbell/IRE22/blob/images/DenCoPlot.png?raw=true)
   
+ Let's improve this. The median income for Denver and Adams counties look identical or nearly so. And the chart would be easier to read if the values were arranged by income instead of by name. 
   
+> ggplot(DenverIncome, aes(x = estimate, y =reorder(NAME, estimate))) +
+  geom_errorbarh(aes(xmin = estimate - moe, xmax = estimate + moe)) +
+  geom_point(size = 3, color = "royalblue")
+  
+![]()
