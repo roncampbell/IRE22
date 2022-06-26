@@ -30,7 +30,7 @@ We'll first load a couple of packages. If you're studying this after the confere
   * > library(tidyverse)
   * > library(tidycensus)
   
-The tidycensus package uses the Census Bureau's application programming interface (API) to download data directly from the census website. It is much faster than any of the bureau's own tools. Once you learn the basic syntax, tidycensus becomes almost second-nature.  
+The tidycensus package uses the Census Bureau's application programming interface (API) to download data directly from the census website. It is much faster than any of the bureau's own tools. Once you learn the basic syntax, tidycensus becomes almost second-nature. You will need a key to the Census API site; keys are free and easy to get. Sign up [here](https://api.census.gov/data/key_signup.html).
   
 Time is short during the class, and conference room internet hookups are notoriously slow. So we're going to take a shortcut. I wrote a script, <code>DemoTracts.R</code>., that pulls 2020 census tract data for the six Denver region metro counties: Adams, Arapahoe, Broomfield, Denver, Douglas and Jefferson, using the 3-digit FIPS codes for those counties. You'll find DemoTracts.R in the Data portion of this GitHub repo. Feel free to customize DemoTracts.R for your own market, substituting your state and the FIPS codes for the counties that comprise your metro. 
   
@@ -96,7 +96,7 @@ Let's focus on the largest tracts, those with at least 4,755 residents. We can d
  
 With that, we've gone from 688 tracts down to 45 - the 45 largest tracts in the city of Denver.
 
-R allows you to import data directly from the web. We'll pull some income data for the Denver metro area now using the tidycensus package.
+R allows you to import data directly from the web. We'll pull some income data for the Denver metro area now using the tidycensus package. Reminder: You need a Census API key to do this, unless you want to use the DenverIncome.csv file attached to this repo. The instructions for signing up for an API key area are above.
   
 > DenverIncome <- get_acs(
   geography = "county",
